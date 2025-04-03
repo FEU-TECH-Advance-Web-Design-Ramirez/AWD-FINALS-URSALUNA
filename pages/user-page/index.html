@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Review Process</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <header class="fixed top-0 left-0 w-full z-50 bg-white">
+      <div
+        class="flex xl:flex-row lg:flex-row md:flex-row flex-col px-2 pb-2 border-b w-full h-full xl:pt-5 xl:items-center lg:items-center md:items-end text-primary"
+      >
+        <div
+          class="flex xl:items-end lg:items-end md:items-end items-center gap-2 xl:w-2/6 lg:w-2/6 md:w-2/6 w-full h-full"
+        >
+          <img
+            class="w-[70px] h-[70px] xl:-mb-3 lg:-mb-3 md:-mb-3"
+            src="../../assets/img/logo-app-rmv.png"
+            alt=""
+          />
+          <h1 class="font-logo xl:text-4xl lg:text-4xl md:text-3xl text-3xl">
+            Langora
+          </h1>
+        </div>
+
+        <div
+          class="flex container-nav h-full xl:w-4/6 lg:w-4/6 md:w-4/6 w-full place-self-end"
+        >
+          <!--para sa space-->
+          <div class="w-1/4 xl:hidden lg:hidden block"></div>
+          <nav
+            class="bg-ambe0 w-3/4 flex xl:justify-around lg:justify-between md:justify-between justify-evenly xl:w-full lg:w-full md:w-full xl:text-xl lg:text-lg md:text-lg text-md"
+          >
+            <!--put bg color-->
+            <a
+              href="../home-page/index.html"
+              class="hover:text-third transition duration-200"
+              >Learn</a
+            >
+            <a
+              href="../validate-platform/index.html"
+              class="hover:text-third transition duration-200"
+              >validate-platform</a
+            >
+            <a
+              href="#"
+              class="xl:pr-16 lg:pr-16 md:pr-16 hover:text-third transition duration-200"
+              >Friends</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex w-full xl:pt-0 lg:pt-0 md:pt-16 pt-[102px] mt-20">
+      <section class="flex-1 ml-[130px] w-full h-[100vh]">
+        <!-- Stepper Container -->
+        <div class="max-w-7xl w-full mx-auto p-6 mt-">
+          <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">
+            User Account & Review Process
+          </h1>
+
+          <div class="flex justify-center mb-6">
+            <div class="w-full max-w-md bg-white p-6 shadow-lg rounded-lg">
+              <div id="step-1" class="step">
+                <h2 class="text-xl font-semibold text-center mb-4">
+                  Step 1: Create Account
+                </h2>
+                <form id="createAccountForm">
+                  <div class="mb-4">
+                    <label
+                      for="email"
+                      class="xl:text-2xl lg:text-xl md:text-xl pl-2"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      class="mt-1 bg-white w-full rounded-sm border border-primary shadow-[3px_3px_0px_0px_#063f5c] text-black pl-1 font-normal lg:p-1.5 md:p-1 lg:text-lg md:text-md"
+                      placeholder="Enter your email"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      for="name"
+                      class="xl:text-2xl lg:text-xl md:text-xl pl-2"
+                      >Full Name</label
+                    >
+                    <input
+                      type="text"
+                      id="name"
+                      class="mt-1 bg-white w-full rounded-sm border border-primary shadow-[3px_3px_0px_0px_#063f5c] text-black pl-1 font-normal lg:p-1.5 md:p-1 lg:text-lg md:text-md"
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      for="password"
+                      class="xl:text-2xl lg:text-xl md:text-xl pl-2"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      id="password"
+                      class="mt-1 bg-white w-full rounded-sm border border-primary shadow-[3px_3px_0px_0px_#063f5c] text-black pl-1 font-normal lg:p-1.5 md:p-1 lg:text-lg md:text-md"
+                      placeholder="Enter your password"
+                      required
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="w-full bg-blue-500 text-white p-2 rounded-lg"
+                  >
+                    Create Account
+                  </button>
+                </form>
+              </div>
+
+              <div id="step-2" class="step hidden">
+                <h2 class="text-xl font-semibold text-center mb-4">
+                  Step 2: Add Review
+                </h2>
+                <form id="reviewForm">
+                  <div class="mb-4">
+                    <label
+                      for="platform"
+                      class="xl:text-2xl lg:text-xl md:text-xl pl-2"
+                      >Platform</label
+                    >
+                    <select
+                      id="platform"
+                      class="mt-1 bg-white w-full rounded-sm border border-primary shadow-[3px_3px_0px_0px_#063f5c] text-black pl-1 font-normal lg:p-1.5 md:p-1 lg:text-lg md:text-md"
+                      required
+                    >
+                      <option value="">Select Platform</option>
+                      <!-- Options will be populated dynamically -->
+                    </select>
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      for="rating"
+                      class="xl:text-2xl lg:text-xl md:text-xl pl-2"
+                      >Rating</label
+                    >
+                    <select
+                      id="rating"
+                      class="mt-1 bg-white w-full rounded-sm border border-primary shadow-[3px_3px_0px_0px_#063f5c] text-black pl-1 font-normal lg:p-1.5 md:p-1 lg:text-lg md:text-md"
+                      required
+                    >
+                      <option value="">Select Rating</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      for="comment"
+                      class="xl:text-2xl lg:text-xl md:text-xl pl-2"
+                      >Comment</label
+                    >
+                    <textarea
+                      id="comment"
+                      class="mt-1 bg-white w-full rounded-sm border border-primary shadow-[3px_3px_0px_0px_#063f5c] text-black pl-1 font-normal lg:p-1.5 md:p-1 lg:text-lg md:text-md"
+                      placeholder="Write your review here..."
+                      required
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    class="w-full bg-green-500 text-white p-2 rounded-lg"
+                  >
+                    Submit Review
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let userData = null;
+
+      const platforms = [
+        { id: 1, name: "Duolingo" },
+        { id: 2, name: "Babbel" },
+        { id: 3, name: "Memrise" },
+      ];
+
+      document.addEventListener("DOMContentLoaded", () => {
+        populatePlatformSelect(platforms);
+
+        document
+          .getElementById("createAccountForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const name = document.getElementById("name").value;
+            const password = document.getElementById("password").value;
+
+            // Simulating account creation
+            userData = { email, name, password };
+            alert("Account created successfully!");
+            showStep(2);
+          });
+
+        document
+          .getElementById("reviewForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const platformId = document.getElementById("platform").value;
+            const rating = document.getElementById("rating").value;
+            const comment = document.getElementById("comment").value;
+
+            if (!userData) {
+              alert("Please create an account first!");
+              return;
+            }
+
+            const review = {
+              platformId,
+              userId: userData.email,
+              rating,
+              comment,
+            };
+
+            // Simulating review submission
+            alert("Review submitted successfully: " + JSON.stringify(review));
+          });
+      });
+
+      function showStep(step) {
+        const step1 = document.getElementById("step-1");
+        const step2 = document.getElementById("step-2");
+
+        if (step === 1) {
+          step1.classList.remove("hidden");
+          step2.classList.add("hidden");
+        } else {
+          step1.classList.add("hidden");
+          step2.classList.remove("hidden");
+        }
+      }
+
+      function populatePlatformSelect(platforms) {
+        const platformSelect = document.getElementById("platform");
+        platforms.forEach((platform) => {
+          const option = document.createElement("option");
+          option.value = platform.id;
+          option.textContent = platform.name;
+          platformSelect.appendChild(option);
+        });
+      }
+    </script>
+  </body>
+</html>

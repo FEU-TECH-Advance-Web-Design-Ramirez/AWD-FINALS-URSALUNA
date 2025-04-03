@@ -1,134 +1,192 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../src/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Langora</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform Ranking and Sorting</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="../../src/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="../../assets/img/logo-app-rmv.png" />
+  </head>
 
-<body class="flex flex-col h-screen ">
-
+  <body class="flex flex-col h-screen">
     <header class="fixed top-0 left-0 w-full z-50 bg-white">
-
-        <div class=" flex xl:flex-row lg:flex-row md:flex-row flex-col px-2 pb-2 border-b w-full h-full xl:pt-5 xl:items-center lg:items-center md:items-end text-primary">
-            <div class="flex xl:items-end lg:items-end md:items-end items-center gap-2 xl:w-2/6 lg:w-2/6 md:w-2/6 w-full h-full">
-                <img class="w-[70px] h-[70px] xl:-mb-3 lg:-mb-3 md:-mb-3" src="../../assets/img/logo-app-rmv.png" alt="">
-                <h1 class="font-logo xl:text-4xl lg:text-4xl md:text-3xl text-3xl">Langora</h1>
-            </div>
-
-            <div class="flex container-nav h-full xl:w-4/6 lg:w-4/6 md:w-4/6 w-full place-self-end">
-
-                <!--para sa space-->
-                <div class="w-1/4 xl:hidden lg:hidden block"></div>
-                <nav class="bg-ambe0 w-3/4 flex xl:justify-around lg:justify-between md:justify-between justify-evenly xl:w-full lg:w-full md:w-full xl:text-xl lg:text-lg md:text-lg text-md "> <!--put bg color-->
-                    <a href="../home-page/index.html" class="hover:text-third transition duration-200">Learn</a>
-                    <a href="#" class="hover:text-third transition duration-200">Practice</a>
-                    <a href="#" class="xl:pr-16 lg:pr-16 md:pr-16 hover:text-third transition duration-200">Friends</a>
-                </nav>
-            </div>
+      <div
+        class="flex xl:flex-row lg:flex-row md:flex-row flex-col px-2 pb-2 border-b w-full h-full xl:pt-5 xl:items-center lg:items-center md:items-end text-primary"
+      >
+        <div
+          class="flex xl:items-end lg:items-end md:items-end items-center gap-2 xl:w-2/6 lg:w-2/6 md:w-2/6 w-full h-full"
+        >
+          <img
+            class="w-[70px] h-[70px] xl:-mb-3 lg:-mb-3 md:-mb-3"
+            src="../../assets/img/logo-app-rmv.png"
+            alt=""
+          />
+          <h1 class="font-logo xl:text-4xl lg:text-4xl md:text-3xl text-3xl">
+            Langora
+          </h1>
         </div>
+
+        <div
+          class="flex container-nav h-full xl:w-4/6 lg:w-4/6 md:w-4/6 w-full place-self-end"
+        >
+          <!--para sa space-->
+          <div class="w-1/4 xl:hidden lg:hidden block"></div>
+          <nav
+            class="bg-ambe0 w-3/4 flex xl:justify-around lg:justify-between md:justify-between justify-evenly xl:w-full lg:w-full md:w-full xl:text-xl lg:text-lg md:text-lg text-md"
+          >
+            <!--put bg color-->
+            <a
+              href="../home-page/index.html"
+              class="hover:text-third transition duration-200"
+              >Learn</a
+            >
+            <a
+              href="#"
+              class="hover:text-third transition duration-200"
+              >Practice</a
+            >
+            <a
+              href="#"
+              class="hover:text-third transition duration-200"
+              >Friends</a
+            >
+          </nav>
+        </div>
+      </div>
     </header>
 
     <main class="flex w-full xl:pt-0 lg:pt-0 md:pt-16 pt-[102px]">
-
-        <!-- palitan mo yung h-calc depende sa top sa sizes-->
-        <aside class="border-r flex flex-col items-center px-4 fixed xl:top-[86px] lg:top-[67px] md:top-[67px] top-[103px] left-0 w-[130px] xl:h-[calc(100vh-86px)] lg:h-[calc(100vh-67px)] md:h-[calc(100vh-67px)] h-[calc(100vh-103px)] flex-shrink-0">
-            <div class="streak-language flex items-center justify-center gap-4 md:gap-5 lg:gap-6  w-full py-2 mt-4">
-                <div class="streak flex items-center">
-                    <img class="h-[1.6rem] w-[1.6rem]" src="./assets/img/flaming-flame-icons-download-free-png-and-vector-icons-766499.png">
-                    <p>7</p>
-                </div>
-                <img class="h-[2rem] w-[2rem]" src="./assets/img/japan.png">
+      <!-- palitan mo yung h-calc depende sa top sa sizes-->
+      <aside
+        class="border-r bg-white flex flex-col items-center px-4 fixed xl:top-[86px] lg:top-[67px] md:top-[67px] top-[103px] left-0 w-[130px] xl:h-[calc(100vh-86px)] lg:h-[calc(100vh-67px)] md:h-[calc(100vh-67px)] h-[calc(100vh-103px)] flex-shrink-0"
+      >
+        <div
+          class="streak-language flex items-center justify-center gap-4 md:gap-5 lg:gap-6 w-full py-2 mt-4"
+        >
+          <div class="streak flex items-center">
+            <img
+              class="h-[1.6rem] w-[1.6rem]"
+              src="./assets/img/flaming-flame-icons-download-free-png-and-vector-icons-766499.png"
+            />
+            <p>7</p>
+          </div>
+          <img class="h-[2rem] w-[2rem]" src="./assets/img/japan.png" />
+        </div>
+        <div
+          class="flex flex-col items-center justify-evenly gap-4 flex-1 py-4 w-full xl:text-xl lg:text-lg md:text-md text-xs font-semibold text-third"
+        >
+          <a
+            href="../platform-submission-page/index.html"
+            class="flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-16 h-16 flex items-center justify-center rounded-full bg-primary"
+            >
+              <i class="fa-solid fa-scroll text-white text-4xl"></i>
             </div>
-            <div class="flex flex-col items-center justify-evenly gap-4 flex-1 py-4 w-full xl:text-xl lg:text-lg md:text-md text-xs font-semibold text-third">
-
-                <a href="" class="flex flex-col items-center gap-2">
-                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary">
-                        <i class="fa-solid fa-user text-white text-4xl"></i>
-                    </div>
-                    <p class="lg:text-sm">PROFILE</p>
-                </a>
-                <a href="#" class="flex flex-col items-center gap-2">
-                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary">
-                        <i class="fa-solid fa-scroll text-white text-4xl"></i>
-                    </div>
-                    <p class="lg:text-sm">CHALLENGES</p>
-                </a>
-                <a href="#" class="flex flex-col items-center gap-2">
-                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary">
-                        <i class="fa-solid fa-trophy text-white text-4xl"></i>
-                    </div>
-                    <p class="lg:text-sm">RANKINGS</p>
-                </a>
-                <a href="../settings-page/index.html" class="flex flex-col items-center gap-2">
-                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary">
-                        <i class="fa-solid fa-gear text-4xl text-white "></i>
-                    </div>
-                    <p class="lg:text-sm">SETTINGS</p>
-                </a>
+            <p class="lg:text-sm text-center">PLATFORM SUBMISSION</p>
+          </a>
+          <a
+            href="../feedback-page/index.html"
+            class="flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-16 h-16 flex items-center justify-center rounded-full bg-primary"
+            >
+              <i class="fa-solid fa-trophy text-white text-4xl"></i>
             </div>
-        </aside>
+            <p class="lg:text-sm">FEEDBACKS</p>
+          </a>
 
-        <!--tanggalin mo nalang height if gusto mo. pang display lang muna 200vh-->
-        <section class="flex-1 ml-[130px] w-full h-screen font-semibold xl:px-5 lg:px-5 md:px-3 px-2">
-            <div class="w-full flex flex-col items-center font-bold text-secondary xl:mt-22 lg:mt-16 md:mt-1 mt-0.5 xl:py-4 lg:py-2 py-1 lg:text-5xl md:text-4xl text-3xl px-2">
-                <a href="../home-page/index.html" class="self-start"><i class="fa-solid fa-arrow-left-long md:text-3xl text-2xl text-primary"></i></a>
-                <div class="flex flex-col items-center space-y-2 w-full xl:gap-5 lg:gap-4 md:gap-1 gap-0">
-                    <p class="w-full text-center">LANGUAGE RANKINGS</p>
-                    <div class="flex flex-col items-center gap-2 w-full">
-                        <p class="w-11/12 text-center bg-fourth md:text-xl text-base text-third py-2 border-2 border-primary rounded-xl">MOST SPOKEN LANGUAGES</p>
-                        <div class="flex justify-end w-full mt-2 mb-2">
-                            <div class="relative w-[160px]">
-                                <button id="sortButton" class="flex items-center justify-between w-full px-3 py-1.5 bg-third text-white border-2 border-primary rounded-lg hover:bg-primary transition-colors duration-200">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fas fa-users text-base"></i>
-                                        <span class="font-semibold text-sm sort-text">By Speakers</span>
-                                    </span>
-                                    <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
-                                </button>
-                                <div id="sortMenu" class="hidden absolute w-full mt-1 bg-white border-2 border-primary rounded-lg overflow-hidden z-10 shadow-lg">
-                                    <button class="flex items-center gap-2 w-full px-3 py-2 text-third hover:bg-fourth transition-colors duration-200 border-b border-primary text-sm" data-sort="bySpeakers" data-icon="fa-users">
-                                        <i class="fas fa-users text-base"></i>
-                                        <span>By Speakers</span>
-                                    </button>
-                                    <button class="flex items-center gap-2 w-full px-3 py-2 text-third hover:bg-fourth transition-colors duration-200 border-b border-primary text-sm" data-sort="byCountries" data-icon="fa-globe">
-                                        <i class="fas fa-globe text-base"></i>
-                                        <span>By Countries</span>
-                                    </button>
-                                    <button class="flex items-center gap-2 w-full px-3 py-2 text-third hover:bg-fourth transition-colors duration-200 text-sm" data-sort="byGrowth" data-icon="fa-chart-line">
-                                        <i class="fas fa-chart-line text-base"></i>
-                                        <span>By Growth</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <a
+            href="#"
+            class="flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-16 h-16 flex items-center justify-center rounded-full bg-primary"
+            >
+              <i class="fa-solid fa-trophy text-white text-4xl"></i>
             </div>
+            <p class="lg:text-sm">RANKINGS</p>
+          </a>
+          <a
+            href="../settings-page/index.html"
+            class="flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-16 h-16 flex items-center justify-center rounded-full bg-primary"
+            >
+              <i class="fa-solid fa-gear text-4xl text-white"></i>
+            </div>
+            <p class="lg:text-sm">SETTINGS</p>
+          </a>
+        </div>
+      </aside>
 
-            <div class="w-full xl:p-6 lg:p-5 md:p-4 p-3">
-                <div class="flex justify-between items-center text-third font-bold xl:text-2xl lg:text-xl md:text-lg text-[.8rem] pb-3 gap-3">
-                    <span class="w-[70px] xl:w-[90px] lg:w-[80px] md:w-[75px] text-center">RANK</span>
-                    <div class="flex-1 flex justify-between xl:px-4 lg:px-4 md:px-3 px-2">
-                        <span class="uppercase">Language</span>
-                        <span class="value-display uppercase">Speakers (M)</span>
-                    </div>
-                </div>
-
-                <div class="language-container flex flex-col gap-4">
-                    <!-- new languages will store here. tba pa to -->
-                </div>
+      <section class="flex-1 ml-[130px] w-full h-screen font-semibold">
+        <div
+          class="w-full flex justify-center text-2xl font-bold text-secondary border-b border-primary xl:mt-22 lg:mt-16 md:mt-1 mt-0.5 xl:py-6 lg:py-4 py-2 md:text-4xl"
+        >
+          <p>PLATFORM RANKING AND SORTING</p>
+        </div>
+        <div class="w-full xl:p-7 lg:p-5 md:p-4 p-2">
+          <!-- <a href="../home-page/index.html"
+            ><i
+              class="fa-solid fa-arrow-left-long md:text-3xl text-2xl text-primary"
+            ></i
+          ></a> back button-->
+          
+          <div class="w-full px-5 xl:text-2xl lg:text-xl md:text-lg text-md">
+            <div class="flex justify-end items-center gap-5 mt-5">
+              <div class="flex justify-center mb-4">
+                <select
+                  id="sortBy"
+                  class="p-2 border-2 border-primary rounded-xl focus:outline-none focus:border-third bg-fourth text-primary"
+                >
+                  <option value="rating">Sort by Rating</option>
+                  <option value="popularity">Sort by Popularity</option>
+                </select>
+                <button
+                  id="sortButton"
+                  class="ml-4 bg-primary hover:bg-secondary text-white px-4 py-2 rounded-md cursor-pointer active:translate-y-0.5 transition-colors duration-200"
+                >
+                  Sort
+                </button>
+              </div>
             </div>
 
-        </section>
+            <div class="w-full mx-auto">
+              <div class="overflow-x-auto bg-white shadow-md rounded-xl mb-6 border-2 border-primary">
+                <table class="min-w-full table-auto">
+                  <thead>
+                    <tr class="bg-fourth text-primary">
+                      <th class="p-4 text-left">ID</th>
+                      <th class="p-4 text-left">Name</th>
+                      <th class="p-4 text-left">Average Rating</th>
+                      <th class="p-4 text-left">Popularity (Reviews)</th>
+                      <th class="p-4 text-left">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody id="platformTable"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="./assets/js/scripts.js"></script>
-</body>
-
+  </body>
 </html>

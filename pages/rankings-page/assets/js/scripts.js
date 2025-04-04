@@ -29,11 +29,11 @@ function checkForNewReviews() {
 async function fetchPlatforms(orderBy) {
   try {
     // First get all platforms
-    const allPlatformsResponse = await axios.get('http://localhost:3000/api/LanguageLearner/platforms');
+    const allPlatformsResponse = await axios.get('https://language-learner-api.vercel.app/api/LanguageLearner/platforms');
     let allPlatforms = allPlatformsResponse.data;
 
     // Then get the rankings data with the correct sort order
-    const rankingsResponse = await axios.get(`http://localhost:3000/api/LanguageLearner/admin-rankings-page/${orderBy}`);
+    const rankingsResponse = await axios.get(`https://language-learner-api.vercel.app/api/LanguageLearner/admin-rankings-page/${orderBy}`);
     const rankingsData = rankingsResponse.data || [];
     
     // Create a map of platform data from rankings

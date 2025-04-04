@@ -28,37 +28,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-function togglePassword() {
-  var passwordField = document.getElementById("password");
-  passwordField.type = passwordField.type === "password" ? "text" : "password";
-}
-
-document.getElementById('loginForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    try {
-        const response = await axios.post('http://localhost:3000/api/LanguageLearner/users/login', {
-            email: email,
-            password: password
-        });
-
-        // Store user data
-        localStorage.setItem('userId', response.data.id);
-        localStorage.setItem('userEmail', email);
-        localStorage.setItem('userRole', response.data.role);
-
-        // Redirect based on role
-        if (response.data.role === 'admin') {
-            window.location.href = '../admin-home-page/index.html';
-        } else {
-            window.location.href = '../home-page/index.html';
-        }
-    } catch (error) {
-        console.error('Login error:', error);
-        alert('Login failed. Please check your credentials.');
-    }
-});

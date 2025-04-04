@@ -20,9 +20,9 @@
 
 <!-- TODO: Change the zyx-0314 into your github username  -->
 <!-- TODO: Change the WD-Template-Project into the same name of your folder -->
-![](https://visit-counter.vercel.app/counter.png?page=zSmojii/AWD-FINALS-URSALUNA)
+![](https://visit-counter.vercel.app/counter.png?page=notblinkzzz/AWD-FINALS-URSALUNA)
 
-[![wakatime](https://wakatime.com/badge/user/018dd99a-4985-4f98-8216-6ca6fe2ce0f8/project/63501637-9a31-42f0-960d-4d0ab47977f8.svg)](https://wakatime.com/badge/user/018dd99a-4985-4f98-8216-6ca6fe2ce0f8/project/63501637-9a31-42f0-960d-4d0ab47977f8)
+[![wakatime](https://wakatime.com/badge/user/018ee9d7-76cb-4d00-a96d-8de1fe10ea6a/project/ce5e660a-3375-429a-a1ed-34e65bd78ddd.svg)](https://wakatime.com/badge/user/018ee9d7-76cb-4d00-a96d-8de1fe10ea6a/project/ce5e660a-3375-429a-a1ed-34e65bd78ddd)
 
 ---
 
@@ -120,4 +120,5 @@ WD-ProjectName
 |-|-|-|
 | Tail Wind | So that we can have an easier time customizing our Website using the utility classesfrom Tail Wind | https://tailwindcss.com/ |
 | Font Awesome | For some of our icons on  our Website | https://fontawesome.com/icons |
+
 

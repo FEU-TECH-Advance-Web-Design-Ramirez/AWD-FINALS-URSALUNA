@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await axios.post('http://localhost:3000/api/LanguageLearner/platforms', platformData);
+                const response = await axios.post('https://language-learner-api.vercel.app/api/LanguageLearner/platforms', platformData);
                 alert('Platform submitted successfully! It will be available after admin validation.');
                 form.reset();
                 window.location.href = '../home-page/index.html';

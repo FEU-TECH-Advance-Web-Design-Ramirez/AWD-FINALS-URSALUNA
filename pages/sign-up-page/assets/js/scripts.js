@@ -66,7 +66,7 @@ function createUser() {
   const password = document.getElementById("password").value;
 
   axios
-    .post("http://localhost:3000/api/LanguageLearner/users", {
+    .post("https://language-learner-api.vercel.app/api/LanguageLearner/users", {
       email,
       name,
       password,

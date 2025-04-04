@@ -6,14 +6,14 @@ window.onload = function () {
 
 function getUsers() {
   axios
-    .get("http://localhost:3000/api/LanguageLearner/users")
+    .get("https://language-learner-api.vercel.app/api/LanguageLearner/users")
     .then((response) => {
       users = response.data;
       displayUsers(users);
     })
-    .catch((error) => {
-      alert("Error fetching users: " + error.message);
-    });
+    // .catch((error) => {
+    //   alert("Error fetching users: " + error.message);
+    // });
 }
 
 function displayUsers(usersList) {
@@ -61,7 +61,7 @@ function addUser(event) {
   const password = document.getElementById("addPassword").value;
 
   axios
-    .post("http://localhost:3000/api/LanguageLearner/users", {
+    .post("https://language-learner-api.vercel.app/api/LanguageLearner/users", {
       email: email,
       name: name,
       password: password
@@ -100,7 +100,7 @@ function updateUser(event) {
   const updatedName = document.getElementById("updateName").value;
 
   axios
-    .put(`http://localhost:3000/api/LanguageLearner/users/${userId}`, {
+    .put(`https://language-learner-api.vercel.app/api/LanguageLearner/users/${userId}`, {
       email: updatedEmail,
       name: updatedName,
     })
@@ -117,7 +117,7 @@ function updateUser(event) {
 function deleteUser(userId) {
   if (confirm("Are you sure you want to delete this user?")) {
     axios
-      .delete(`http://localhost:3000/api/LanguageLearner/users/${userId}`)
+      .delete(`https://language-learner-api.vercel.app/api/LanguageLearner/users/${userId}`)
       .then((response) => {
         alert("User Deleted: " + response.data.message);
         getUsers();

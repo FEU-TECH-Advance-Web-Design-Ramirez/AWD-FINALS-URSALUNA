@@ -1,137 +1,130 @@
-// Language data with different sorting criteria
-const languageData = {
-    bySpeakers: [
-        { name: "Mandarin", speakers: 1118, countries: 13, growth: 2.5, icon: "C", color: "bg-red-500" },
-        { name: "Spanish", speakers: 534, countries: 31, growth: 1.8, icon: "S", color: "bg-blue-500" },
-        { name: "English", speakers: 508, countries: 67, growth: 1.2, icon: "E", color: "bg-green-500" },
-        { name: "Hindi", speakers: 497, countries: 4, growth: 2.1, icon: "H", color: "bg-yellow-500" },
-        { name: "Arabic", speakers: 422, countries: 25, growth: 1.5, icon: "A", color: "bg-purple-500" },
-        { name: "Bengali", speakers: 265, countries: 4, growth: 1.9, icon: "B", color: "bg-pink-500" },
-        { name: "Portuguese", speakers: 258, countries: 10, growth: 1.3, icon: "P", color: "bg-orange-500" },
-        { name: "Russian", speakers: 258, countries: 16, growth: 1.1, icon: "R", color: "bg-indigo-500" }
-    ],
-    byCountries: [
-        { name: "English", speakers: 508, countries: 67, growth: 1.2, icon: "E", color: "bg-green-500" },
-        { name: "Spanish", speakers: 534, countries: 31, growth: 1.8, icon: "S", color: "bg-blue-500" },
-        { name: "Arabic", speakers: 422, countries: 25, growth: 1.5, icon: "A", color: "bg-purple-500" },
-        { name: "Russian", speakers: 258, countries: 16, growth: 1.1, icon: "R", color: "bg-indigo-500" },
-        { name: "Mandarin", speakers: 1118, countries: 13, growth: 2.5, icon: "C", color: "bg-red-500" },
-        { name: "Portuguese", speakers: 258, countries: 10, growth: 1.3, icon: "P", color: "bg-orange-500" },
-        { name: "Hindi", speakers: 497, countries: 4, growth: 2.1, icon: "H", color: "bg-yellow-500" },
-        { name: "Bengali", speakers: 265, countries: 4, growth: 1.9, icon: "B", color: "bg-pink-500" }
-    ],
-    byGrowth: [
-        { name: "Mandarin", speakers: 1118, countries: 13, growth: 2.5, icon: "C", color: "bg-red-500" },
-        { name: "Hindi", speakers: 497, countries: 4, growth: 2.1, icon: "H", color: "bg-yellow-500" },
-        { name: "Bengali", speakers: 265, countries: 4, growth: 1.9, icon: "B", color: "bg-pink-500" },
-        { name: "Spanish", speakers: 534, countries: 31, growth: 1.8, icon: "S", color: "bg-blue-500" },
-        { name: "Arabic", speakers: 422, countries: 25, growth: 1.5, icon: "A", color: "bg-purple-500" },
-        { name: "Portuguese", speakers: 258, countries: 10, growth: 1.3, icon: "P", color: "bg-orange-500" },
-        { name: "English", speakers: 508, countries: 67, growth: 1.2, icon: "E", color: "bg-green-500" },
-        { name: "Russian", speakers: 258, countries: 16, growth: 1.1, icon: "R", color: "bg-indigo-500" }
-    ]
-};
+// Sample platform data with default ratings
+const defaultPlatforms = [
+  { id: 1, name: "Duolingo", averageRating: 4.5, popularity: 1000, description: "A free language-learning platform with a gamified approach. Features bite-sized lessons, daily streaks, and a mobile app." },
+  { id: 2, name: "Memrise", averageRating: 4.3, popularity: 800, description: "Uses spaced repetition and memory techniques to help users learn languages effectively. Features video clips of native speakers." },
+  { id: 3, name: "Babbel", averageRating: 4.2, popularity: 50, description: "Focuses on conversation skills with real-world dialogues. Offers structured lessons and speech recognition technology." },
+  { id: 4, name: "Busuu", averageRating: 4.6, popularity: 400, description: "Combines AI-powered learning with community features. Offers official language certificates and personalized study plans." },
+  { id: 5, name: "Rosetta Stone", averageRating: 3.8, popularity: 20, description: "Uses immersive learning techniques with no translations. Focuses on natural language acquisition through visual and audio cues." }
+];
 
-function updateDisplay(sortBy) {
-    const container = document.querySelector('.language-container');
-    container.innerHTML = '';
+let platforms = [];
+let lastCheckedTimestamp = 0;
 
-    languageData[sortBy].forEach((lang, index) => {
-        const rankColor = index === 0 ? 'text-secondary' :
-                         index === 1 ? 'text-zinc-300' :
-                         index === 2 ? 'text-[#CD7F32]' : 'text-white';
+// Initialize the display when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  const orderBy = document.getElementById('sortBy').value;
+  fetchPlatforms(orderBy);
+  setInterval(checkForNewReviews, 1000);
+});
 
-        const itemContainer = document.createElement('div');
-        itemContainer.className = 'flex w-full gap-3';
-
-        const rankContainer = document.createElement('div');
-        rankContainer.className = 'w-[70px] xl:w-[90px] lg:w-[80px] md:w-[75px] bg-third border-2 border-primary rounded-xl text-center shadow-[0px_3px_0px_0px_#063f5c] flex items-center justify-center min-h-[50px] xl:min-h-[60px] lg:min-h-[55px] md:min-h-[50px]';
-
-        const rankNumber = document.createElement('p');
-        rankNumber.className = `${rankColor} font-black xl:text-6xl lg:text-5xl md:text-4xl text-4xl leading-none w-full px-2`;
-        rankNumber.style.textShadow = '1px 1px 0px rgba(0, 0, 0, 0.2)';
-        rankNumber.textContent = index + 1;
-        rankContainer.appendChild(rankNumber);
-
-        const langContainer = document.createElement('div');
-        langContainer.className = 'flex flex-1 bg-third border-2 border-primary xl:py-3 lg:py-3 md:py-2 py-2 xl:px-4 lg:px-4 md:px-3 px-2 rounded-xl justify-between shadow-[0px_3px_0px_0px_#063f5c] text-white';
-
-        const langNameSection = document.createElement('div');
-        langNameSection.className = 'flex gap-2 items-center';
-
-        const langIcon = document.createElement('span');
-        langIcon.className = `xl:w-12 xl:h-12 lg:w-10 lg:h-10 md:w-8 md:h-8 w-7 h-7 flex items-center justify-center ${lang.color} text-white font-bold rounded-full xl:text-xl lg:text-lg md:text-base text-sm`;
-        langIcon.textContent = lang.icon;
-
-        const langName = document.createElement('p');
-        langName.className = 'xl:text-2xl lg:text-xl md:text-lg text-base';
-        langName.textContent = lang.name;
-
-        langNameSection.appendChild(langIcon);
-        langNameSection.appendChild(langName);
-
-        const valueSection = document.createElement('div');
-        valueSection.className = 'flex items-center xl:pr-4 lg:pr-4 md:pr-3 pr-2';
-
-        const valueSpan = document.createElement('span');
-        valueSpan.className = 'xl:text-2xl lg:text-xl md:text-lg text-base';
-
-        const value = sortBy === 'bySpeakers' ? lang.speakers.toLocaleString() :
-                     sortBy === 'byCountries' ? lang.countries :
-                     lang.growth.toFixed(1) + '%';
-        valueSpan.textContent = value;
-
-        valueSection.appendChild(valueSpan);
-
-        langContainer.appendChild(langNameSection);
-        langContainer.appendChild(valueSection);
-
-        itemContainer.appendChild(rankContainer);
-        itemContainer.appendChild(langContainer);
-
-        container.appendChild(itemContainer);
-    });
-
-    const valueDisplay = document.querySelector('.value-display');
-    valueDisplay.textContent = sortBy === 'bySpeakers' ? 'SPEAKERS (M)' :
-                             sortBy === 'byCountries' ? 'COUNTRIES' :
-                             'GROWTH (%)';
+function checkForNewReviews() {
+  const lastReviewTimestamp = parseInt(localStorage.getItem('lastReviewTimestamp') || '0');
+  if (lastReviewTimestamp > lastCheckedTimestamp) {
+    lastCheckedTimestamp = lastReviewTimestamp;
+    const orderBy = document.getElementById('sortBy').value;
+    fetchPlatforms(orderBy);
+  }
 }
 
-const sortButton = document.getElementById('sortButton');
-const sortMenu = document.getElementById('sortMenu');
-const chevronIcon = sortButton.querySelector('.fa-chevron-down');
-const sortButtonIcon = sortButton.querySelector('i:not(.fa-chevron-down)');
-const sortButtonText = sortButton.querySelector('.sort-text');
+async function fetchPlatforms(orderBy) {
+  try {
+    // First get all platforms
+    const allPlatformsResponse = await axios.get('http://localhost:3000/api/LanguageLearner/platforms');
+    let allPlatforms = allPlatformsResponse.data;
 
-sortButton.addEventListener('click', (e) => {
-    e.stopPropagation();
-    sortMenu.classList.toggle('hidden');
-    chevronIcon.style.transform = sortMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-});
+    // Then get the rankings data with the correct sort order
+    const rankingsResponse = await axios.get(`http://localhost:3000/api/LanguageLearner/admin-rankings-page/${orderBy}`);
+    const rankingsData = rankingsResponse.data || [];
+    
+    // Create a map of platform data from rankings
+    const platformMap = new Map(rankingsData.map(p => [p.id.toString(), p]));
+    
+    // First, apply default values to predefined platforms
+    allPlatforms = allPlatforms
+      .filter(platform => platform.validated)
+      .map(platform => {
+        const defaultPlatform = defaultPlatforms.find(dp => dp.name === platform.name);
+        if (defaultPlatform) {
+          return {
+            ...platform,
+            averageRating: defaultPlatform.averageRating,
+            popularity: defaultPlatform.popularity
+          };
+        }
+        return {
+          ...platform,
+          averageRating: 0,
+          popularity: 0
+        };
+      });
 
-document.addEventListener('click', (e) => {
-    if (!sortButton.contains(e.target) && !sortMenu.contains(e.target)) {
-        sortMenu.classList.add('hidden');
-        chevronIcon.style.transform = 'rotate(0deg)';
-    }
-});
-
-sortMenu.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', () => {
-        const sortBy = button.getAttribute('data-sort');
-        const iconClass = button.getAttribute('data-icon');
-        const buttonText = button.querySelector('span').textContent;
-
-        sortButtonIcon.className = `fas ${iconClass} text-lg`;
-        sortButtonText.textContent = buttonText;
-
-        updateDisplay(sortBy);
-        sortMenu.classList.add('hidden');
-        chevronIcon.style.transform = 'rotate(0deg)';
+    // Then, override with actual review data if it exists
+    const mergedPlatforms = allPlatforms.map(platform => {
+      const rankingData = platformMap.get(platform.id.toString());
+      if (rankingData && (rankingData.popularity > 0 || rankingData.averageRating > 0)) {
+        return {
+          ...platform,
+          averageRating: rankingData.averageRating,
+          popularity: rankingData.popularity
+        };
+      }
+      return platform;
     });
-});
+    
+    platforms = mergedPlatforms;
+    displayPlatforms(platforms, orderBy);
+  } catch (error) {
+    console.error('Error fetching platforms:', error);
+    displayPlatforms(defaultPlatforms, orderBy);
+  }
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateDisplay('bySpeakers');
+function displayPlatforms(platformList, orderBy) {
+  const platformTable = document.getElementById('platformTable');
+  platformTable.innerHTML = '';
+
+  // Sort platforms based on orderBy parameter
+  platformList.sort((a, b) => {
+    if (orderBy === 'rating') {
+      if (b.averageRating === a.averageRating) {
+        return b.popularity - a.popularity;
+      }
+      return b.averageRating - a.averageRating;
+    } else { // popularity
+      if (b.popularity === a.popularity) {
+        return b.averageRating - a.averageRating;
+      }
+      return b.popularity - a.popularity;
+    }
+  });
+
+  platformList.forEach((platform, index) => {
+    const row = document.createElement('tr');
+    row.className = 'border-b hover:bg-gray-50 transition-colors duration-200 text-lg';
+    
+    const rankColor = index === 0 ? 'text-secondary font-medium' :
+                     index === 1 ? 'text-zinc-300 font-medium' :
+                     index === 2 ? 'text-[#CD7F32] font-medium' : 'text-gray-700';
+    
+    row.innerHTML = `
+      <td class="p-4 ${rankColor}">${index + 1}</td>
+      <td class="p-4 font-medium">${platform.name}</td>
+      <td class="p-4">
+        <div class="flex items-center font-medium">
+          <span class="text-yellow-500 mr-1">★</span>
+          ${platform.averageRating}
+        </div>
+      </td>
+      <td class="p-4 font-medium">${platform.popularity}</td>
+      <td class="p-4 max-w-xl">${platform.description}</td>
+    `;
+    
+    platformTable.appendChild(row);
+  });
+}
+
+// Add event listener for the sort button
+document.getElementById('sortButton').addEventListener('click', () => {
+  const orderBy = document.getElementById('sortBy').value;
+  fetchPlatforms(orderBy);
 });

@@ -121,4 +121,3 @@ WD-ProjectName
 | Tail Wind | So that we can have an easier time customizing our Website using the utility classesfrom Tail Wind | https://tailwindcss.com/ |
 | Font Awesome | For some of our icons on  our Website | https://fontawesome.com/icons |
 
-

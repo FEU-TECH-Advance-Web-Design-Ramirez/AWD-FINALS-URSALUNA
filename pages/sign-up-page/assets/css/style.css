@@ -1,0 +1,39 @@
+@import url(../../../../src/output.css);
+@import url(../../../../src/input.css);
+
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+
+}
+
+/*  {
+    outline: 1px solid green
+} */
+
+
+.footer-desk-lap{
+    display: flex;
+}
+
+
+
+
+@media (min-width: 640px) { /* sm pero di need */
+
+}
+
+@media (min-width: 768px) { /* md */
+
+
+}
+
+@media (min-width: 1024px) { /* lg */
+
+}
+
+@media (min-width: 1280px) { /* xl */
+
+
+}

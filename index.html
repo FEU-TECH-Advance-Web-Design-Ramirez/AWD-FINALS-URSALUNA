@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>Langora</title>
+    <link rel="icon" type="image/png" href="./assets/img/logo-app-rmv.png" />
+  </head>
+
+  <body
+    class="flex flex-col h-screen lg:min-h-screen xl:min-h-screen lg:overflow-visible xl:overflow-visible"
+  >
+    <!-- Header pc/laptop  -->
+    <header
+      class="bg-white header-div-pc-laptop fixed top-0 w-full flex flex-col justify-between xl:px-15 xl:py-5 lg:px-12 lg:py-3 px-10 py-3 xl:gap-0 lg:gap-0 md:gap-4 gap-3 text-primary"
+    >
+      <div class="flex text-md">
+        <div class="flex items-center w-1/2 gap-2">
+          <img
+            class="xl:h-12 xl:w-12 lg:h-11 lg:w-11 md:h-10 md:w-10 h-9 w-9"
+            src="./assets/img/logo-app-rmv.png"
+            alt="Logo"
+          />
+          <h1 class="xl:text-2xl text-xl font-bold">Langora</h1>
+        </div>
+        <nav class="flex xl:justify-end lg:justify-end w-1/2">
+          <ul
+            class="flex w-full xl:justify-between xl:items-center lg:justify-between lg:items-center justify-end"
+          >
+            <a
+              class="xl:block lg:block hidden hover:text-third transition duration-200"
+              href="#"
+              >Home</a
+            >
+            <div class="relative group">
+              <a
+                href="#"
+                class="xl:block lg:block hidden border-b-2 border-transparent hover:text-third transition duration-200"
+                >Languages<i class="fa-solid fa-caret-down ml-2"></i
+              ></a>
+              <div
+                class="absolute z-10 overflow-y-auto bg-white left-[-60px] mt-1 w-48 h-48 shadow-md rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
+              >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                  >Spanish</a
+                >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">French</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">German</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                  >Japanese</a
+                >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                  >Mandarin</a
+                >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Korean</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                  >English</a
+                >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                  >Tagalog</a
+                >
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                  >Portugese</a
+                >
+              </div>
+            </div>
+            <a
+              class="xl:block lg:block hidden hover:text-third transition duration-200"
+              href="./pages/about-us-page/index.html"
+              >About Us</a
+            >
+
+            <!--LOGIN PAGE HREF-->
+            <a href="./pages/login-page/index.html"
+              ><button
+                class="bg-white xl:px-11 xl:py-2 lg:px-9 lg:py-1 md:px-6 py-1 px-4 border-2 rounded-xl border-primary shadow-[3px_3px_0px_0px_#063f5c] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] transition-all duration-100"
+              >
+                Start Learning
+              </button></a
+            >
+          </ul>
+        </nav>
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-full h-1 border-b-2 border-primary"
+      ></div>
+      <nav class="xl:hidden lg:hidden">
+        <ul class="flex w-full justify-evenly items-center text-primary">
+          <a class="hover:text-fourth" href="#">Home</a>
+          <div class="relative">
+            <a
+              href="#"
+              class="language-toggle border-b-2 border-transparent hover:text-fourth transition duration-200"
+              >Languages</a
+            >
+            <div
+              class="absolute z-10 -left-4 mt-2 w-48 max-h-48 shadow-md rounded-md overflow-y-auto hidden bg-white"
+            >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Spanish</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">French</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">German</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Japanese</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Mandarin</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Korean</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">English</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tagalog</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >Portuguese</a
+              >
+            </div>
+          </div>
+          <a class="hover:text-fourth" href="./pages/about-us-page/index.html"
+            >About Us</a
+          >
+          <!--LOGIN PAGE HREF-->
+          <a href="./pages/login-page/index.html"
+            ><button
+              class="bg-white px-4 py-1 border-2 rounded-xl border-primary shadow-[3px_3px_0px_0px_#063f5c] active:shadow-none active:translate-x-[3px] active:translate-y-[3px] transition-all duration-100 xl:flex lg:flex md:hidden hidden"
+            >
+              Start Learning
+            </button></a
+          >
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Content desktop/laptop -->
+    <main
+      class="main-desk-lap flex-col grid xl:px-15 xl:py-5 px-9 py-3 w-full xl:mt-32 lg:mt-24 mt-30 xl:gap-10 lg:gap-10"
+    >
+      <h1
+        class="text-center xl:text-6xl lg:text-5xl text-3xl font-medium text-primary"
+      >
+        Welcome to <span>Langora</span>
+      </h1>
+
+      <div
+        class="grid mt-10 xl:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr] items-center xl:mx-16 lg:mx-8"
+      >
+        <div class="grid xl:gap-6 lg:gap-6 md:gap-6 gap-3 max-w-2xl">
+          <h1
+            class="xl:text-5xl lg:text-4xl md:text-2xl text-xl font-bold text-secondary"
+          >
+            Learn Languages the
+            <br class="xl:block lg:block md:block hidden" />Smart Way!
+          </h1>
+          <h3
+            class="xl:text-2xl lg:text-lg md:text-base text-sm text-primary xl:leading-9 lg:leading-8"
+          >
+            <span class="font-bold">Langora</span> makes language learning fun,
+            fast, and effective. Whether you're a beginner or looking to refine
+            your skills, our interactive lessons, engaging exercises, and
+            real-world practice will help you master a new language with
+            confidence. Join Langora today and start your journey to fluency!
+          </h3>
+          <div
+            class="xl:flex lg:flex md:flex hidden w-full justify-between gap-4"
+          >
+            <!--LOGIN PAGE HREF-->
+            <a href="./pages/login-page/index.html"
+              ><button
+                class="xl:px-22 xl:py-3 lg:px-15 lg:py-2 px-10 py-2 bg-primary border-2 border-fourth rounded-xl shadow-[3px_3px_0px_0px_var(--color-fourth)] xl:text-lg lg:text-base text-sm text-white active:shadow-none active:translate-x-[-3px] active:translate-y-[3px] transition-all duration-100"
+              >
+                Let's Start
+              </button></a
+            >
+
+            <button
+              class="xl:px-22 xl:py-3 lg:px-15 lg:py-3 px-10 py-2 bg-fourth border-2 border-primary rounded-xl shadow-[3px_3px_0px_0px_var(--color-primary)] xl:text-lg lg:text-base text-sm text-primary active:shadow-none active:translate-x-[3px] active:translate-y-[3px] transition-all duration-100"
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="xl:hidden lg:hidden md:hidden flex h-full justify-between mt-10"
+        >
+          <div class="flex flex-col justify-center gap-4">
+            <!--LOGIN PAGE HREF-->
+            <a href="./pages/login-page/index.html"
+              ><button
+                class="px-7 py-4 bg-primary border-2 border-fourth rounded-md shadow-[-3px_3px_0px_0px_var(--color-fourth)] text-sm text-white active:shadow-none active:translate-x-[-3px] active:translate-y-[3px] transition-all duration-100"
+              >
+                Start Learning
+              </button></a
+            >
+            <button
+              class="px-7 py-4 bg-fourth border-2 border-primary rounded-md shadow-[3px_3px_0px_0px_var(--color-primary)] text-sm text-primary active:shadow-none active:translate-x-[3px] active:translate-y-[3px] transition-all duration-100"
+            >
+              Learn More
+            </button>
+          </div>
+
+          <div id="img-bg" class="h-full">
+            <img
+              src="./assets/img/img-hello.png"
+              alt="Learn"
+              class="w-[170px]"
+            />
+          </div>
+        </div>
+
+        <div
+          id="img-bg"
+          class="xl:flex lg:flex md:flex hidden justify-end items-center h-full"
+        >
+          <img
+            src="./assets/img/img-hello.png"
+            alt="Learn"
+            class="xl:w-[420px] lg:w-[370px] md:w-[300px]"
+          />
+        </div>
+      </div>
+
+      <div class="grid gap-6 xl:mt-32 lg:mt-32 mt-25">
+        <h1
+          class="xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center text-secondary font-medium"
+        >
+          Why choose <span class="font-logo">Langora</span>?
+        </h1>
+        <div
+          class="flex justify-center items-center text-primary xl:text-3xl text-2xl text-center"
+        >
+          <p
+            class="xl:w-3/6 lg:w-3/6 md:w-4/6 xl:text-2xl lg:text-xl md:text-base text-sm"
+          >
+            At <span class="font-bold">Langora</span>, we believe that learning
+            a new language should be fun, engaging, and effective. Our platform
+            combines interactive lessons and real-world practice to help you
+            master a language quickly and confidently.
+          </p>
+        </div>
+        <div
+          class="xl:mt-5 lg:mt-5 md:mt-2 grid grid-cols-2 xl:gap-2 lg:gap-2 md:gap-2 gap-y-5 w-full justify-items-center text-center md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4"
+        >
+          <p
+            class="interactive-p bg-fourth text-xs md:text-base lg:text-base xl:text-xl px-8 py-4 md:px-10 md:py-4 lg:px-14 lg:py-8 xl:px-18 xl:py-10 rounded-xl border-2 border-primary"
+          >
+            Interactive<br />Lessons
+          </p>
+          <p
+            class="gamified-p bg-fourth text-xs md:text-base lg:text-base xl:text-xl px-8 py-4 md:px-10 md:py-4 lg:px-14 lg:py-8 xl:px-18 xl:py-10 rounded-xl border-2 border-primary"
+          >
+            Gamified<br />Learning
+          </p>
+          <p
+            class="ai-p bg-fourth text-xs md:text-base lg:text-base xl:text-xl px-8 py-4 md:px-10 md:py-4 lg:px-14 lg:py-8 xl:px-18 xl:py-10 rounded-xl border-2 border-primary"
+          >
+            Real-World<br />Conversations
+          </p>
+          <p
+            class="anytime-p bg-fourth text-xs md:text-base lg:text-base xl:text-xl px-8 py-4 md:px-10 md:py-4 lg:px-14 lg:py-8 xl:px-18 xl:py-10 rounded-xl border-2 border-primary"
+          >
+            Anytime,<br />Anywhere
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col xl:gap-11 lg:gap-11 md:gap-11 gap-3 mt-32 w-full justify-center items-center"
+      >
+        <h1
+          class="bg-primary text-white font-bold border-2 shadow-[-5px_5px_0px_0px_rgba(6,63,92,1)] border-fourth rounded-xl xl:px-36 xl:py-7 lg:px-28 lg:py-6 xl:text-4xl lg:text-3xl md:text-2xl text-xl md:px-24 md:py-4 px-14 py-2.5 text-center"
+        >
+          Learners <span class="">Feedback</span>
+        </h1>
+
+        <div class="flex flex-col xl:gap-11 lg:gap-11 md:gap-11 gap-5">
+          <div
+            class="feedback-container flex xl:flex-row lg:flex-row md:flex-row flex-col w-full p-4 xl:justify-evenly lg:justify-evenly md:justify-evenly md:gap-5 gap-4 xl:px-20"
+          >
+            <!-- Your three default review cards here -->
+          </div>
+
+          <div
+            class="user-reviews-container flex xl:flex-row lg:flex-row md:flex-row flex-col w-full p-4 xl:justify-evenly lg:justify-evenly md:justify-evenly md:gap-5 gap-4 xl:px-20"
+          >
+            <!-- New reviews will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="footer-desk-lap w-full border-t-2 border-primary xl:px-15 xl:py-12 lg:px-12 lg:py-10 px-10 py-8 mt-30 xl:flex-row lg:flex-row md:flex-row flex-col"
+    >
+      <div
+        class="xl:w-[40%] lg:w-[40%] md:w-[40%] w-full text-primary flex xl:flex-col lg:flex-col md:flex-col gap-2"
+      >
+        <div class="flex items-center gap-2">
+          <img
+            class="xl:h-12 xl:w-12 h-9 w-9"
+            src="./assets/img/logo-app-rmv.png"
+            alt=""
+          />
+          <h1 class="xl:text-2xl text-2xl font-bold">Langora</h1>
+        </div>
+
+        <!--hidden type shit-->
+        <div class="xl:hidden lg:hidden md:hidden flex flex-col pl-16 gap-1">
+          <div class="flex text-xl gap-3 w-fit">
+            <a href="" class=""><i class="fa-brands fa-facebook"></i></a>
+            <a href="" class=""><i class="fa-brands fa-instagram"></i></a>
+            <a href="" class=""><i class="fa-solid fa-envelope"></i></a>
+          </div>
+          <div class="text-sm font-medium">
+            <p class="">All rights reserved.</p>
+          </div>
+        </div>
+
+        <div
+          class="xl:block lg:block md:block hidden xl:text-3xl lg:text-2xl text-xl gap-3 w-fit pl-1"
+        >
+          <a href="" class=""><i class="fa-brands fa-facebook"></i></a>
+          <a href="" class=""><i class="fa-brands fa-instagram"></i></a>
+          <a href="" class=""><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <div
+          class="xl:block lg:block md:block hidden xl:text-sm text-xs font-medium pl-1"
+        >
+          <p class="xl:text-lg lg:text-lg md:text-sm">
+            © 2025 Langora. All rights reserved.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="xl:w-[60%] lg:w-[60%] md:w-[60%] w-full xl:mt-0 lg:mt-0 md:mt-0 mt-10 flex justify-evenly gap-6 pt-3"
+      >
+        <div
+          class="xl:text-lg lg:text-base md:text-sm text-primary flex flex-col gap-2"
+        >
+          <h2 class="font-semibold">Terms & Policies</h2>
+          <a href=""
+            ><p
+              class="xl:text-base text-sm hover:text-third hover:scale-105 transition-all duration-200"
+            >
+              Privacy
+            </p></a
+          >
+          <a href=""
+            ><p
+              class="xl:text-base text-sm hover:text-third hover:scale-105 transition-all duration-200"
+            >
+              Terms & Condition
+            </p></a
+          >
+        </div>
+
+        <div
+          class="xl:text-lg lg:text-base md:text-sm text-primary flex flex-col gap-2"
+        >
+          <h2 class="font-semibold">Learn With Us</h2>
+          <a href=""
+            ><p
+              class="xl:text-base text-sm hover:text-third hover:scale-105 transition-all duration-200"
+            >
+              Languages Offered
+            </p></a
+          >
+          <a href=""
+            ><p
+              class="xl:text-base text-sm hover:text-third hover:scale-105 transition-all duration-200"
+            >
+              Community Forum
+            </p></a
+          >
+          <a href=""
+            ><p
+              class="xl:text-base text-sm hover:text-third hover:scale-105 transition-all duration-200"
+            >
+              Mobile App
+            </p></a
+          >
+        </div>
+
+        <div
+          class="xl:text-lg lg:text-base md:text-sm text-primary flex flex-col gap-2"
+        >
+          <h2 class="font-semibold">Support</h2>
+          <a href=""
+            ><p
+              class="xl:text-base text-sm hover:text-third hover:scale-105 transition-all duration-200"
+            >
+              Help Center
+            </p></a
+          >
+          <a href=""
+            ><p
+              class="xl:text-base text-sm hover:text-third hover:scale-105 transition-all duration-200"
+            >
+              Refund Policy
+            </p></a
+          >
+          <a href=""
+            ><p
+              class="xl:text-base text-sm hover:text-third hover:scale-105 transition-all duration-200"
+            >
+              FAQs
+            </p></a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+
+    <!-- Update the review template -->
+    <template id="review-template">
+      <div
+        class="flex flex-col xl:gap-3 lg:gap-3 gap-1 h-fit xl:w-2/8 lg:w-60 md:w-52 text-primary shadow-2xl xl:p-6 p-4 rounded-2xl shadow-blue-500/20 w-10/12 self-center"
+      >
+        <p
+          class="text-primary xl:text-2xl lg:text-lg md:text-base text-sm review-text"
+        ></p>
+        <p
+          class="text-primary font-semibold xl:text-2xl lg:text-lg md:text-base text-sm review-author"
+        ></p>
+        <div class="text-yellow-500 xl:text-xl text-base review-stars"></div>
+      </div>
+    </template>
+  </body>
+</html>

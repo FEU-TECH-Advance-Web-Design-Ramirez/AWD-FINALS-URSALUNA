@@ -1,0 +1,125 @@
+@import url(../../src/output.css);
+@import url(../../src/input.css);
+
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+
+}
+
+/*  {
+    outline: 1px solid green
+} */
+
+
+.header-div-phone-tablet{
+    display: flex;
+}
+
+.icons-size {
+    font-size: var(--text-xl);
+}
+
+.main-desk-lap {
+    display: flex;
+}
+.footer-desk-lap{
+    display: flex;
+}
+
+.interactive-p {
+    border-radius: var(--radius-xl);
+    box-shadow: -5px 5px 0px 0px var(--color-third);
+    color: var(--color-primary);
+}
+
+.gamified-p {
+    border-radius: var(--radius-xl);
+    box-shadow: 5px 5px 0px 0px var(--color-third);
+    color: var(--color-primary);
+}
+.ai-p{
+    border-radius: var(--radius-xl);
+    box-shadow: -5px 5px 0px 0px var(--color-third);
+    color: var(--color-primary);
+}
+
+.anytime-p {
+    border-radius: var(--radius-xl);
+    box-shadow: 5px 5px 0px 0px var(--color-third);
+    color: var(--color-primary);
+}
+
+
+
+
+@media (min-width: 640px) { /* sm pero di need */
+
+}
+
+@media (min-width: 768px) { /* md */
+    .interactive-p {
+        border-radius: var(--radius-xl);
+        box-shadow: -5px 5px 0px 0px var(--color-third);
+    }
+
+    .gamified-p {
+        border-radius: var(--radius-xl);
+        box-shadow: -5px 5px 0px 0px var(--color-third);
+    }
+    .ai-p{
+        border-radius: var(--radius-xl);
+        box-shadow: 5px 5px 0px 0px var(--color-third);
+    }
+
+    .anytime-p {
+        border-radius: var(--radius-xl);
+        box-shadow: 5px 5px 0px 0px var(--color-third);
+    }
+
+}
+
+@media (min-width: 1024px) { /* lg */
+    .interactive-p {
+        border-radius: var(--radius-xl);
+        box-shadow: -5px 5px 0px 0px var(--color-third);
+    }
+
+    .gamified-p {
+        border-radius: var(--radius-xl);
+        box-shadow: -5px 5px 0px 0px var(--color-third);
+    }
+    .ai-p{
+        border-radius: var(--radius-xl);
+        box-shadow: 5px 5px 0px 0px var(--color-third);
+    }
+
+    .anytime-p {
+        border-radius: var(--radius-xl);
+        box-shadow: 5px 5px 0px 0px var(--color-third);
+    }
+}
+
+@media (min-width: 1280px) { /* xl */
+
+    .interactive-p {
+        border-radius: var(--radius-xl);
+        box-shadow: -5px 5px 0px 0px var(--color-third);
+    }
+
+    .gamified-p {
+        border-radius: var(--radius-xl);
+        box-shadow: -5px 5px 0px 0px var(--color-third);
+    }
+    .ai-p{
+        border-radius: var(--radius-xl);
+        box-shadow: 5px 5px 0px 0px var(--color-third);
+    }
+
+    .anytime-p {
+        border-radius: var(--radius-xl);
+        box-shadow: 5px 5px 0px 0px var(--color-third);
+    }
+
+}
